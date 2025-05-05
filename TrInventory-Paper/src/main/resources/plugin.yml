@@ -1,0 +1,6 @@
+name: TrInventory
+version: '1.0'
+main: me.tr.trInventory.TrInventoryPaper
+api-version: '1.21'
+commands:
+  openinventory:

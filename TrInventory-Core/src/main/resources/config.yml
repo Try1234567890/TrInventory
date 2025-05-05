@@ -1,0 +1,22 @@
+Inventories:
+  A:
+    Title: "<red>Mercy ha un gyat enorme"
+    Rows: 9
+    Items:
+      A:
+        Material: "STONE"
+        Name: "<red>Mercy ha il pisellone"
+        Lore:
+          - ""
+          - "Mi piace il pisellone di Mercy"
+        CustomModelData: 69
+        Slot: 3
+      B:
+        Material: "STONE"
+        Name: "<red>Mercy ha il culone"
+        Lore:
+          - ""
+          - "Mi piace il culone di Mercy"
+        CustomModelData: 69
+        Slot: 5
+
