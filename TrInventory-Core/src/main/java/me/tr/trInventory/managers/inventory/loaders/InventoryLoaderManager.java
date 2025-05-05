@@ -26,6 +26,7 @@ public class InventoryLoaderManager {
     }
 
     public TrBaseInventory load(Plugin plugin, Section invSection) {
+        String id = invSection.getName();
         InventoryType inventoryType = main.getInventoryManager().getInventoryType(invSection);
         switch (inventoryType) {
             case DISPENSER:
@@ -63,7 +64,7 @@ public class InventoryLoaderManager {
                 break;
             case ANVIL:
                 TrAnvilInventory anvilInventory = new TrAnvilInventoryLoader(plugin).load(invSection);
-                main.getInventoryManager().getCachedInventories().add(anvilInventory);
+                main.getInventoryManager().getCachedInventories().put(id, anvilInventory);
                 return anvilInventory;
             case SMITHING:
 
@@ -118,7 +119,7 @@ public class InventoryLoaderManager {
                 break;
             default:
                 TrBaseInventory baseInventory = new TrBaseInventoryLoader(plugin).load(invSection);
-                main.getInventoryManager().getCachedInventories().add(baseInventory);
+                main.getInventoryManager().getCachedInventories().put(id, baseInventory);
                 return baseInventory;
         }
         return null;

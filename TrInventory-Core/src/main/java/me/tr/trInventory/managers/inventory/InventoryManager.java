@@ -7,13 +7,15 @@ import org.bukkit.event.inventory.InventoryType;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class InventoryManager {
     private TrInventory main = TrInventory.getMain();
-    private List<TrBaseInventory> cachedInventories = new ArrayList<>();
+    private Map<String, TrBaseInventory> cachedInventories = new HashMap<>();
 
-    public List<TrBaseInventory> getCachedInventories() {
+    public Map<String, TrBaseInventory> getCachedInventories() {
         return cachedInventories;
     }
 
@@ -30,11 +32,8 @@ public class InventoryManager {
     }
 
     public @Nullable TrBaseInventory getInventory(String ID) {
-        for (TrBaseInventory inv : getCachedInventories()) {
-            if (inv.getId().equals(ID)) {
-                return inv;
-            }
-        }
+        if (getCachedInventories().containsKey(ID))
+            return getCachedInventories().get(ID);
         return null;
     }
 

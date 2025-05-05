@@ -16,7 +16,7 @@ public class OnInventoryClose implements Listener {
     public void onInventoryClose(InventoryCloseEvent e) {
         if (e.getPlayer() instanceof Player player) {
             Inventory currentInventory = e.getInventory();
-            for (TrBaseInventory inventory : main.getInventoryManager().getCachedInventories()) {
+            for (TrBaseInventory inventory : main.getInventoryManager().getCachedInventories().values()) {
                 if (!inventory.isTitleAnimated() && !inventory.hasItemsAnimations())
                     return;
                 if (currentInventory == inventory.getInventory()) {
